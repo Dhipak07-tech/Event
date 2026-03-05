@@ -382,25 +382,25 @@ const Lightbox: React.FC<LightboxProps> = ({ images, currentIndex, onClose, onPr
           exit={{ opacity: 0, y: 40, scale: 0.95 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           onClick={(e) => e.stopPropagation()}
-          className="bg-white rounded-[2.5rem] shadow-[0_30px_100px_rgba(0,0,0,0.4)] w-full max-w-4xl max-h-[90vh] flex flex-col overflow-hidden border border-white/20"
+          className="bg-white rounded-[1.5rem] sm:rounded-[2.5rem] shadow-[0_30px_100px_rgba(0,0,0,0.4)] w-full max-w-4xl max-h-[95vh] sm:max-h-[90vh] flex flex-col overflow-hidden border border-white/20"
         >
           {/* Modal Header */}
           <div className={cn(
-            "relative p-10 flex flex-col md:flex-row items-center md:items-end justify-between gap-8 overflow-hidden",
+            "relative p-6 sm:p-10 flex flex-col md:flex-row items-center md:items-end justify-between gap-6 sm:gap-8 overflow-hidden",
             "bg-gradient-to-br from-[#0f172a] via-[#1e3a8a] to-[#0f172a]"
           )}>
             {/* Background Glows */}
             <div className="absolute top-[-20%] right-[-10%] w-64 h-64 bg-blue-400/20 rounded-full blur-[80px]" />
             <div className="absolute bottom-[-20%] left-[-10%] w-48 h-48 bg-cyan-400/10 rounded-full blur-[60px]" />
 
-            <div className="flex flex-col md:flex-row items-center md:items-center gap-6 relative z-10 max-w-[75%]">
-              <div className="w-20 h-20 shrink-0 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white shadow-[0_0_30px_rgba(255,255,255,0.15)] group">
-                <div className="absolute inset-0 bg-white/5 rounded-3xl group-hover:bg-white/10 transition-colors" />
-                <Trophy className="w-10 h-10 text-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]" />
+            <div className="flex flex-col md:flex-row items-center md:items-center gap-4 sm:gap-6 relative z-10 max-w-full md:max-w-[75%]">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-[1.25rem] sm:rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white shadow-[0_0_30px_rgba(255,255,255,0.15)] group">
+                <div className="absolute inset-0 bg-white/5 rounded-[1.25rem] sm:rounded-3xl group-hover:bg-white/10 transition-colors" />
+                <Trophy className="w-8 h-8 sm:w-10 sm:h-10 text-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]" />
               </div>
               <div className="text-center md:text-left flex flex-col justify-center">
-                <p className="text-blue-200/50 text-[10px] md:text-xs font-bold tracking-[0.4em] uppercase mb-2">Award Image Viewer</p>
-                <h2 className="text-white font-black text-2xl md:text-[28px] tracking-[0.5px] leading-[1.2] font-outfit uppercase break-words whitespace-normal">
+                <p className="text-blue-200/50 text-[10px] md:text-xs font-bold tracking-[0.3em] sm:tracking-[0.4em] uppercase mb-1 sm:mb-2">Award Image Viewer</p>
+                <h2 className="text-white font-black text-xl sm:text-2xl md:text-[28px] tracking-[0.5px] leading-[1.2] font-outfit uppercase break-words whitespace-normal px-4 md:px-0">
                   {categoryName.split(' ').map((word, i) => i === categoryName.split(' ').length - 1 ? <span key={i} className="text-[#8bb6ff] drop-shadow-md">{word}</span> : word + ' ')}
                 </h2>
               </div>
@@ -408,28 +408,28 @@ const Lightbox: React.FC<LightboxProps> = ({ images, currentIndex, onClose, onPr
 
             <button
               onClick={onClose}
-              className="absolute top-8 right-8 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-lg border border-white/10 flex items-center justify-center text-white transition-all duration-300 hover:rotate-90 z-20 group"
+              className="absolute top-4 right-4 sm:top-8 sm:right-8 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-lg border border-white/10 flex items-center justify-center text-white transition-all duration-300 hover:rotate-90 z-20 group"
             >
-              <X className="w-6 h-6 group-hover:scale-110" />
+              <X className="w-5 h-5 sm:w-6 sm:h-6 group-hover:scale-110" />
             </button>
           </div>
 
           {/* Image Viewer Section */}
-          <div className="flex-1 flex flex-col items-center justify-center p-10 bg-gradient-to-b from-slate-50 to-slate-100 relative">
+          <div className="flex-1 flex flex-col items-center justify-center p-4 sm:p-10 bg-gradient-to-b from-slate-50 to-slate-100 relative">
             {/* Navigation Arrows */}
             <button
               onClick={(e) => { e.stopPropagation(); onPrev(); }}
-              className="absolute left-10 z-20 w-12 h-12 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center text-white transition-all"
+              className="absolute left-4 sm:left-10 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center text-white transition-all"
               style={{ color: '#ffffff' }}
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
             <button
               onClick={(e) => { e.stopPropagation(); onNext(); }}
-              className="absolute right-10 z-20 w-12 h-12 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center text-white transition-all"
+              className="absolute right-4 sm:right-10 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center text-white transition-all"
               style={{ color: '#ffffff' }}
             >
-              <ChevronRight className="w-6 h-6" />
+              <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
 
             {/* Image Container */}
@@ -445,15 +445,7 @@ const Lightbox: React.FC<LightboxProps> = ({ images, currentIndex, onClose, onPr
               <img
                 src={`/Award_Images/${current.filename}`}
                 alt={current.person}
-                style={{
-                  maxWidth: '70%',
-                  maxHeight: '70vh',
-                  borderRadius: '12px',
-                  boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
-                  margin: 'auto',
-                  display: 'block'
-                }}
-                className="object-contain"
+                className="w-[90%] sm:w-[70%] max-h-[70vh] object-contain rounded-xl shadow-2xl mx-auto block"
               />
 
               {/* Image Title */}
@@ -515,10 +507,10 @@ const LogoLightbox: React.FC<LogoLightboxProps> = ({ logo, name, onClose }) => {
       onClick={onClose}
     >
       <motion.button
-        className="absolute top-8 right-8 text-white/50 hover:text-white transition-colors z-[210]"
+        className="absolute top-6 right-6 sm:top-8 sm:right-8 text-white/50 hover:text-white transition-colors z-[210]"
         onClick={(e) => { e.stopPropagation(); onClose(); }}
       >
-        <X className="w-8 h-8" />
+        <X className="w-6 h-6 sm:w-8 sm:h-8" />
       </motion.button>
 
       <motion.div
@@ -596,25 +588,25 @@ const GalleryModal: React.FC<GalleryModalProps> = ({ category, images, onClose, 
           exit={{ opacity: 0, y: 40, scale: 0.95 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           onClick={(e) => e.stopPropagation()}
-          className="bg-white rounded-[2.5rem] shadow-[0_30px_100px_rgba(0,0,0,0.4)] w-full max-w-6xl max-h-[90vh] flex flex-col overflow-hidden border border-white/20"
+          className="bg-white rounded-[1.5rem] sm:rounded-[2.5rem] shadow-[0_30px_100px_rgba(0,0,0,0.4)] w-full max-w-6xl max-h-[95vh] sm:max-h-[90vh] flex flex-col overflow-hidden border border-white/20"
         >
           {/* Modal Header */}
           <div className={cn(
-            "relative p-10 flex flex-col md:flex-row items-center md:items-end justify-between gap-8 overflow-hidden",
+            "relative p-6 sm:p-10 flex flex-col md:flex-row items-center md:items-end justify-between gap-6 sm:gap-8 overflow-hidden",
             "bg-gradient-to-br from-[#0f172a] via-[#1e3a8a] to-[#0f172a]"
           )}>
             {/* Background Glows */}
             <div className="absolute top-[-20%] right-[-10%] w-64 h-64 bg-blue-400/20 rounded-full blur-[80px]" />
             <div className="absolute bottom-[-20%] left-[-10%] w-48 h-48 bg-cyan-400/10 rounded-full blur-[60px]" />
 
-            <div className="flex flex-col md:flex-row items-center md:items-center gap-6 relative z-10 max-w-[75%]">
-              <div className="w-20 h-20 shrink-0 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white shadow-[0_0_30px_rgba(255,255,255,0.15)] group">
-                <div className="absolute inset-0 bg-white/5 rounded-3xl group-hover:bg-white/10 transition-colors" />
-                {React.cloneElement(category.icon as React.ReactElement, { className: "w-10 h-10 text-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]" })}
+            <div className="flex flex-col md:flex-row items-center md:items-center gap-4 sm:gap-6 relative z-10 max-w-full md:max-w-[75%]">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-[1.25rem] sm:rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white shadow-[0_0_30px_rgba(255,255,255,0.15)] group">
+                <div className="absolute inset-0 bg-white/5 rounded-[1.25rem] sm:rounded-3xl group-hover:bg-white/10 transition-colors" />
+                {React.cloneElement(category.icon as React.ReactElement, { className: "w-8 h-8 sm:w-10 sm:h-10 text-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]" })}
               </div>
               <div className="text-center md:text-left flex flex-col justify-center">
-                <p className="text-blue-200/50 text-[10px] md:text-xs font-bold tracking-[0.4em] uppercase mb-2">Award Category Exhibition</p>
-                <h2 className="text-white font-black text-2xl md:text-[28px] tracking-[0.5px] leading-[1.2] font-outfit uppercase break-words whitespace-normal">
+                <p className="text-blue-200/50 text-[10px] md:text-xs font-bold tracking-[0.3em] sm:tracking-[0.4em] uppercase mb-1 sm:mb-2">Award Category Exhibition</p>
+                <h2 className="text-white font-black text-xl sm:text-2xl md:text-[28px] tracking-[0.5px] leading-[1.2] font-outfit uppercase break-words whitespace-normal px-4 md:px-0">
                   {category.name.split(' ').map((word, i) => i === category.name.split(' ').length - 1 ? <span key={i} className="text-[#8bb6ff] drop-shadow-md">{word}</span> : word + ' ')}
                 </h2>
               </div>
@@ -622,16 +614,16 @@ const GalleryModal: React.FC<GalleryModalProps> = ({ category, images, onClose, 
 
             <button
               onClick={onClose}
-              className="absolute top-8 right-8 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-lg border border-white/10 flex items-center justify-center text-white transition-all duration-300 hover:rotate-90 z-20 group"
+              className="absolute top-4 right-4 sm:top-8 sm:right-8 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-lg border border-white/10 flex items-center justify-center text-white transition-all duration-300 hover:rotate-90 z-20 group"
             >
-              <X className="w-6 h-6 group-hover:scale-110" />
+              <X className="w-5 h-5 sm:w-6 sm:h-6 group-hover:scale-110" />
             </button>
           </div>
 
           {/* Description & Metrics Overlay — hidden while viewing an image */}
           {lightboxIndex === null && (
-            <div className="px-10 py-8 bg-slate-50/50 border-b border-slate-200/60 flex flex-col md:flex-row md:items-center justify-between gap-6">
-              <div className="max-w-2xl border-l-[4px] border-[#4f7cff] pl-6 py-1">
+            <div className="px-6 py-6 sm:px-10 sm:py-8 bg-slate-50/50 border-b border-slate-200/60 flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <div className="max-w-2xl border-l-[3px] sm:border-l-[4px] border-[#4f7cff] pl-4 sm:pl-6 py-1">
                 <p className="text-slate-600 font-light leading-relaxed text-sm md:text-base font-inter">
                   {category.description}
                 </p>
@@ -651,8 +643,8 @@ const GalleryModal: React.FC<GalleryModalProps> = ({ category, images, onClose, 
           <div className={cn(
             "flex-1 overflow-y-auto custom-scrollbar scroll-smooth",
             lightboxIndex !== null
-              ? "bg-gradient-to-b from-[#0a1228] to-[#0f172a] flex flex-col items-center justify-center p-6"
-              : "p-10"
+              ? "bg-gradient-to-b from-[#0a1228] to-[#0f172a] flex flex-col items-center justify-center p-4 sm:p-6"
+              : "p-6 sm:p-10"
           )}>
             {lightboxIndex !== null ? (
               /* ── Inline Image Viewer ── */
@@ -697,15 +689,7 @@ const GalleryModal: React.FC<GalleryModalProps> = ({ category, images, onClose, 
                     <img
                       src={images[lightboxIndex].url || `/Award_Images/${images[lightboxIndex].filename}`}
                       alt={images[lightboxIndex].person}
-                      style={{
-                        maxWidth: '70%',
-                        maxHeight: '60vh',
-                        borderRadius: '12px',
-                        boxShadow: '0 20px 40px rgba(0,0,0,0.35)',
-                        margin: 'auto',
-                        display: 'block'
-                      }}
-                      className="object-contain"
+                      className="w-[90%] sm:w-[80%] md:w-[70%] max-h-[50vh] sm:max-h-[60vh] object-contain rounded-xl shadow-2xl mx-auto block"
                     />
                     <h3 style={{ fontSize: '18px', fontWeight: '600', color: 'white', marginTop: '16px', textAlign: 'center' }}>
                       {images[lightboxIndex].person}
@@ -836,7 +820,7 @@ const Navbar = () => {
             <img
               src="/Award_Images/Logo.png"
               alt="Technosprint Info Solutions"
-              className="h-14 md:h-20 w-auto object-contain select-none transition-all"
+              className="h-10 sm:h-14 md:h-18 lg:h-20 w-auto object-contain select-none transition-all"
               draggable={false}
             />
           </a>
@@ -932,10 +916,10 @@ const Hero = () => {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.18, ease: 'easeOut' }}
-          className="mb-2"
+          className="mb-2 w-full max-w-[90vw] mx-auto"
         >
           <h2
-            className="text-2xl md:text-[2.75rem] font-black uppercase tracking-[0.4em] bg-gradient-to-r from-[#0F172A] via-[#1E3A8A] to-[#0F172A] bg-clip-text text-transparent font-outfit whitespace-nowrap drop-shadow-sm"
+            className="text-[clamp(8px,3.2vw,2.75rem)] sm:text-2xl md:text-[2.75rem] font-black uppercase tracking-[0.1em] sm:tracking-[0.4em] bg-gradient-to-r from-[#0F172A] via-[#1E3A8A] to-[#0F172A] bg-clip-text text-transparent font-outfit drop-shadow-sm whitespace-nowrap text-center"
             style={{
               textShadow: '0 0 30px rgba(30,58,138,0.15)',
             }}
@@ -955,7 +939,7 @@ const Hero = () => {
             className="text-xl md:text-3xl font-black uppercase tracking-[0.35em] bg-gradient-to-r from-amber-600 via-yellow-400 to-amber-600 bg-clip-text text-transparent font-outfit drop-shadow-sm"
             style={{ textShadow: '0 0 20px rgba(217,119,6,0.2)' }}
           >
-            AWARD 2026
+            ACHIEVEMENTS 2026
           </span>
         </motion.div>
 
@@ -964,7 +948,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, delay: 0.32, ease: 'easeOut' }}
-          className="text-xs md:text-sm font-light tracking-[0.22em] uppercase text-slate-400 mb-10"
+          className="text-[10px] sm:text-xs md:text-sm font-medium sm:font-light tracking-[0.15em] sm:tracking-[0.22em] uppercase text-slate-400 mb-8 sm:mb-10 px-4"
         >
           Award Event Excellence &amp; Corporate Recognition Platform
         </motion.p>
@@ -993,7 +977,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.62 }}
-          className="text-4xl md:text-7xl font-bold text-blue-950 tracking-tight leading-[1.05] mb-8 font-outfit"
+          className="text-3xl sm:text-4xl md:text-7xl font-bold text-blue-950 tracking-tight leading-[1.05] mb-8 font-outfit"
         >
           Where Technology Meets{' '}
           <br />
@@ -1119,30 +1103,30 @@ const AwardsSection = () => {
 
   return (
     <>
-      <section id="awards" className="py-24 px-6 bg-[#F8FAFC] relative overflow-hidden">
+      <section id="awards" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 bg-[#F8FAFC] relative overflow-hidden">
         {/* Decorative background blur circles */}
-        <div className="absolute top-1/4 left-0 w-64 h-64 bg-blue-100/40 rounded-full blur-[100px] pointer-events-none" />
-        <div className="absolute bottom-1/4 right-0 w-64 h-64 bg-slate-200/40 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute top-1/4 left-0 w-48 sm:w-64 h-48 sm:h-64 bg-blue-100/40 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-1/4 right-0 w-48 sm:w-64 h-48 sm:h-64 bg-slate-200/40 rounded-full blur-[100px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Header */}
-          <div className="text-center mb-24">
+          <div className="text-center mb-12 sm:mb-16 md:mb-20">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-blue-100 text-blue-900 text-[10px] font-bold tracking-[0.25em] uppercase mb-6 shadow-sm"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-blue-100 text-blue-900 text-[10px] font-bold tracking-[0.25em] uppercase mb-4 sm:mb-6 shadow-sm"
             >
               <Trophy className="w-3 h-3 text-amber-500" />
-              Awards 2024
+              Achievements 2026
             </motion.div>
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl md:text-5xl font-bold text-[#0F172A] tracking-tight mb-6 font-outfit"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#0F172A] tracking-tight mb-4 sm:mb-6 font-outfit"
             >
               PRESTIGIOUS <span className="font-light italic text-blue-900">PORTFOLIO</span>
             </motion.h2>
@@ -1151,14 +1135,14 @@ const AwardsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-slate-500 font-light max-w-xl mx-auto leading-relaxed font-inter"
+              className="text-slate-500 font-light max-w-xl mx-auto leading-relaxed font-inter text-sm sm:text-base px-2"
             >
               Click on an award category to explore the remarkable individuals and milestone achievements honored this year.
             </motion.p>
           </div>
 
           {/* Award Category Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5">
             {loading ? (
               // Loading Skeleton
               Array(8).fill(0).map((_, i) => (
@@ -1377,17 +1361,16 @@ const ClientsAndPartnershipsSection = () => {
   };
 
   return (
-    <section id="clients-partners" className="py-24 px-6 bg-slate-50 relative overflow-hidden">
+    <section id="clients-partners" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 bg-slate-50 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
-
         {/* === SECTION 1: INDUSTRIES WE SERVE === */}
-        <div className="mb-24">
-          <div className="text-center mb-20">
+        <div className="mb-16 sm:mb-20 md:mb-24">
+          <div className="text-center mb-12 sm:mb-16 md:mb-20">
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-[10px] font-bold tracking-[0.3em] uppercase text-blue-600 mb-4"
+              className="text-[10px] font-bold tracking-[0.3em] uppercase text-blue-600 mb-3 sm:mb-4"
             >
               Global Expertise
             </motion.div>
@@ -1396,7 +1379,7 @@ const ClientsAndPartnershipsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl md:text-6xl font-bold text-blue-950 tracking-tight mb-8 uppercase font-outfit"
+              className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-blue-950 tracking-tight mb-6 sm:mb-8 uppercase font-outfit"
             >
               Sectors We <span className="font-light italic text-blue-600">Serve</span>
             </motion.h2>
@@ -1404,11 +1387,11 @@ const ClientsAndPartnershipsSection = () => {
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true }}
-              className="w-24 h-1 bg-blue-900 mx-auto rounded-full opacity-20"
+              className="w-20 sm:w-24 h-1 bg-blue-900 mx-auto rounded-full opacity-20"
             />
           </div>
 
-          <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-6 h-auto lg:h-[480px] items-stretch">
+          <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-4 sm:gap-6 h-auto lg:h-[480px] items-stretch">
             {INDUSTRIES_DATA.map((sector, idx) => {
               const isActive = activeSector === sector.id;
               return (
@@ -1421,10 +1404,10 @@ const ClientsAndPartnershipsSection = () => {
                   transition={{ duration: 0.6, delay: idx * 0.1 }}
                   onClick={() => handleSectorClick(sector.id)}
                   className={cn(
-                    "cursor-pointer rounded-[1.5rem] overflow-hidden relative shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-all duration-500 flex flex-col justify-end p-8 border border-white/60 group",
+                    "cursor-pointer rounded-[1.5rem] overflow-hidden relative shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-all duration-500 flex flex-col justify-end p-5 sm:p-8 border border-white/60 group",
                     isActive
                       ? "lg:flex-[3] flex-[4] bg-gradient-to-br from-[#0f1b3d] to-[#1e3a8a] shadow-blue-900/20"
-                      : "lg:flex-[1] flex-[1] bg-gradient-to-br from-white to-[#f4f7fb] hover:bg-white hover:shadow-xl hover:-translate-y-1.5 min-h-[350px] lg:min-h-0"
+                      : "lg:flex-[1] flex-[1] bg-gradient-to-br from-white to-[#f4f7fb] hover:bg-white hover:shadow-xl hover:-translate-y-1.5 min-h-[140px] sm:min-h-[180px] lg:min-h-0"
                   )}
                 >
                   {/* Accent Highlight Glow */}
@@ -1514,13 +1497,13 @@ const ClientsAndPartnershipsSection = () => {
         {/* === SECTION 2: OUR PARTNERS === */}
         <div>
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-blue-950 tracking-tight mb-4 uppercase font-outfit">
+            <h2 className="text-2xl min-[375px]:text-3xl sm:text-4xl md:text-5xl font-bold text-blue-950 tracking-tight mb-4 uppercase font-outfit">
               Our <span className="font-light italic text-blue-600">Partners</span>
             </h2>
             <div className="w-24 h-1 bg-blue-900 mx-auto rounded-full opacity-20" />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
             {PARTNERS_DATA.map((partner) => {
               const isActive = activePartner === partner.id;
               return (
@@ -1590,7 +1573,7 @@ const FeedbackSection = () => {
   return (
     <section id="feedback" className="relative overflow-hidden">
       {/* --- Logo Showcase Section with Deep Gradient --- */}
-      <div className="bg-gradient-to-b from-[#0b132b] to-[#1c2541] py-32 px-6 relative">
+      <div className="bg-gradient-to-b from-[#0b132b] to-[#1c2541] py-16 sm:py-24 md:py-32 px-4 sm:px-6 relative">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 pointer-events-none opacity-20">
           <motion.div
@@ -1740,15 +1723,15 @@ const FeedbackSection = () => {
 
 const ContactSection = () => {
   return (
-    <section id="contact" className="py-24 px-6 bg-slate-50">
+    <section id="contact" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 bg-slate-50">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20">
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold text-blue-950 tracking-tight mb-8 leading-[1.1]">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-950 tracking-tight mb-5 sm:mb-8 leading-[1.1] text-balance">
               LET'S CREATE <br />
               <span className="text-blue-600">HISTORY</span> TOGETHER
             </h2>
-            <p className="text-slate-500 text-lg font-light mb-12 max-w-md">
+            <p className="text-slate-500 text-base sm:text-lg font-light mb-8 sm:mb-12 max-w-md">
               Ready to elevate your corporate recognition to the next level?
               Our team of luxury event designers is standing by.
             </p>
@@ -1959,7 +1942,7 @@ const ClientFeedbackSection = () => {
   };
 
   return (
-    <section id="client-feedback" className="py-32 px-6 bg-[#020617] relative overflow-hidden">
+    <section id="client-feedback" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 bg-[#020617] relative overflow-hidden">
       {/* Background Atmosphere */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[150px]" />
@@ -1967,19 +1950,19 @@ const ClientFeedbackSection = () => {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-20">
+        <div className="text-center mb-12 sm:mb-16 md:mb-20">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight uppercase font-outfit mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight uppercase font-outfit text-balance">
               Client <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4f7cff] to-[#7b61ff]">Feedback</span>
             </h2>
-            <div className="w-24 h-1.5 bg-gradient-to-r from-[#4f7cff] to-[#7b61ff] mx-auto rounded-full mb-8 relative">
+            <div className="w-20 sm:w-24 h-1.5 bg-gradient-to-r from-[#4f7cff] to-[#7b61ff] mx-auto rounded-full mb-6 sm:mb-8 relative">
               <div className="absolute inset-0 bg-blue-400 blur-md opacity-50" />
             </div>
-            <p className="text-slate-400 font-light max-w-2xl mx-auto text-lg leading-relaxed">
+            <p className="text-slate-400 font-light max-w-2xl mx-auto text-base sm:text-lg leading-relaxed px-4">
               Hear directly from our clients about their experience working with Technosprint Info Solutions.
             </p>
           </motion.div>
@@ -2039,16 +2022,16 @@ const ClientFeedbackSection = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 20 }}
             transition={{ duration: 0.4 }}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center bg-white/5 border border-white/10 p-8 md:p-12 rounded-[2.5rem] backdrop-blur-xl mb-16 group hover:bg-white/[0.07] transition-colors"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center bg-white/5 border border-white/10 p-6 sm:p-8 md:p-12 rounded-[2rem] sm:rounded-[2.5rem] backdrop-blur-xl mb-12 sm:mb-16 group hover:bg-white/[0.07] transition-colors"
           >
             <div className="space-y-6">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/20 border border-blue-500/30 rounded-full text-blue-400 text-[10px] font-black uppercase tracking-widest shadow-inner shadow-blue-500/10">
                 <Star className="w-3 h-3 fill-blue-400" /> Premium Service Feedback
               </div>
-              <h3 className="text-3xl md:text-5xl font-black text-white tracking-tight uppercase font-outfit">
+              <h3 className="text-2xl sm:text-3xl md:text-5xl font-black text-white tracking-tight uppercase font-outfit">
                 {activeCategory.name}
               </h3>
-              <p className="text-slate-400 font-light text-lg leading-relaxed border-l-2 border-blue-500/30 pl-6 py-1 italic">
+              <p className="text-slate-400 font-light text-base sm:text-lg leading-relaxed border-l-2 border-blue-500/30 pl-6 py-1 italic">
                 {activeCategory.description}
               </p>
             </div>
@@ -2178,9 +2161,9 @@ const ClientFeedbackSection = () => {
 
 const Footer = () => {
   return (
-    <footer className="bg-blue-950 py-20 px-6 border-t border-white/5">
+    <footer className="bg-blue-950 py-12 sm:py-16 md:py-20 px-4 sm:px-6 border-t border-white/5">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-12 mb-20">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-8 sm:gap-12 mb-12 md:mb-20">
           <div className="flex items-center">
             <img
               src="/Award_Images/Logo.png"
@@ -2218,7 +2201,7 @@ const Footer = () => {
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-white font-sans selection:bg-blue-900 selection:text-white">
+    <div className="min-h-screen bg-white font-sans selection:bg-blue-900 selection:text-white overflow-x-hidden">
       <Navbar />
       <main>
         <Hero />
