@@ -908,7 +908,7 @@ const Hero = () => {
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white pt-24 pb-16">
+    <section id="home" className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden bg-white pt-24 pb-16">
       {/* Background Elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-[-10%] right-[-10%] w-[55%] h-[55%] bg-blue-50 rounded-full blur-[130px] opacity-70" />
@@ -918,7 +918,7 @@ const Hero = () => {
 
       <motion.div
         style={{ y: y1, opacity }}
-        className="relative z-10 text-center px-6 max-w-5xl mx-auto flex flex-col items-center"
+        className="relative z-10 text-center px-4 md:px-6 w-full max-w-full mx-auto flex flex-col items-center"
       >
 
 
@@ -927,12 +927,13 @@ const Hero = () => {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.18, ease: 'easeOut' }}
-          className="mb-2 w-full max-w-[100vw] px-4 mx-auto overflow-visible"
+          className="mb-2 w-full mx-auto overflow-hidden sm:overflow-visible"
         >
           <h2
-            className="text-[clamp(32px,5vw,72px)] font-black uppercase tracking-[0.05em] sm:tracking-[0.4em] bg-gradient-to-r from-[#0F172A] via-[#1E3A8A] to-[#0F172A] bg-clip-text text-transparent font-outfit drop-shadow-sm whitespace-nowrap text-center leading-[1.2] py-2"
+            className="font-black uppercase tracking-[0.05em] sm:tracking-[0.2em] md:tracking-[0.4em] bg-gradient-to-r from-[#0F172A] via-[#1E3A8A] to-[#0F172A] bg-clip-text text-transparent font-outfit drop-shadow-sm whitespace-nowrap text-center leading-[1.2] py-2 w-full max-w-[100%]"
             style={{
-              textShadow: '0 0 40px rgba(30,58,138,0.2)',
+              fontSize: 'clamp(32px, 5vw, 72px)',
+              textShadow: '0 0 30px rgba(30,58,138,0.15)',
             }}
           >
             TECHNOSPRINT INFO SOLUTIONS
@@ -1196,7 +1197,6 @@ const AwardsSection = () => {
                           <img
                             src={images[0]?.url || `/Award_Images/${images[0]?.filename}`}
                             alt={category.name}
-                            loading="lazy"
                             className="w-full h-full object-cover rounded-lg shadow-md transition-transform duration-700 group-hover:scale-110"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-[#0f1b3d]/40 to-transparent" />
@@ -1416,10 +1416,10 @@ const ClientsAndPartnershipsSection = () => {
                   transition={{ duration: 0.6, delay: idx * 0.1 }}
                   onClick={() => handleSectorClick(sector.id)}
                   className={cn(
-                    "cursor-pointer rounded-[1.5rem] overflow-hidden relative shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-all duration-500 flex flex-col justify-end p-5 sm:p-8 border border-white/60 group",
+                    "cursor-pointer rounded-[1.5rem] overflow-hidden relative shadow-[0_10px_30px_rgba(0,0,0,0.08)] flex flex-col justify-end p-5 sm:p-8 border border-white/60 group !transition-all !duration-300 ease-out",
                     isActive
                       ? "lg:flex-[3] bg-gradient-to-br from-[#0f1b3d] to-[#1e3a8a] shadow-blue-900/20"
-                      : "lg:flex-[1] bg-gradient-to-br from-white to-[#f4f7fb] hover:bg-white hover:shadow-2xl hover:shadow-blue-900/10 hover:-translate-y-2 min-h-[160px] md:min-h-[200px] lg:min-h-0"
+                      : "lg:flex-[1] bg-gradient-to-br from-white to-[#f4f7fb] hover:bg-white min-h-[160px] md:min-h-[200px] lg:min-h-0 hover:-translate-y-[6px] hover:shadow-[0_12px_30px_rgba(0,0,0,0.1)]"
                   )}
                 >
                   {/* Accent Highlight Glow */}
@@ -1480,7 +1480,7 @@ const ClientsAndPartnershipsSection = () => {
                         </div>
 
                         <div className="lg:mb-auto flex items-center justify-center w-full lg:w-auto h-full lg:h-auto opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
-                          <div className={cn("w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110", sector.accent, sector.color, "group-hover:bg-white group-hover:shadow-blue-500/20")}>
+                          <div className={cn("w-12 h-12 rounded-2xl flex items-center justify-center shadow-lg transition-all", sector.accent, sector.color)}>
                             {sector.icon}
                           </div>
                         </div>
@@ -2173,7 +2173,7 @@ const ClientFeedbackSection = () => {
 
 const Footer = () => {
   return (
-    <footer className="bg-blue-950 py-12 sm:py-16 md:py-20 px-4 sm:px-6 border-t border-white/5">
+    <footer className="bg-blue-950 py-10 md:py-[60px] lg:py-20 px-4 sm:px-6 border-t border-white/5">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8 sm:gap-12 mb-12 md:mb-20">
           <div className="flex items-center">
