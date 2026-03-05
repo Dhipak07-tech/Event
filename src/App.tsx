@@ -870,19 +870,30 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-t border-slate-100 mt-4 overflow-hidden"
+            className="md:hidden bg-white/95 backdrop-blur-xl border-t border-slate-100 shadow-xl overflow-hidden"
           >
-            <div className="flex flex-col p-6 gap-4">
-              {navLinks.map((link) => (
-                <a
+            <div className="flex flex-col p-8 gap-6">
+              {navLinks.map((link, idx) => (
+                <motion.a
                   key={link.name}
                   href={link.href}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: idx * 0.05 }}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-lg font-medium text-slate-800"
+                  className="text-xl font-bold text-blue-950 hover:text-blue-600 transition-colors uppercase tracking-widest font-outfit"
                 >
                   {link.name}
-                </a>
+                </motion.a>
               ))}
+              <motion.button
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="w-full bg-blue-900 text-white py-4 rounded-2xl font-black uppercase tracking-widest shadow-lg shadow-blue-900/20"
+              >
+                Inquiry Now
+              </motion.button>
             </div>
           </motion.div>
         )}
@@ -916,10 +927,10 @@ const Hero = () => {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.18, ease: 'easeOut' }}
-          className="mb-2 w-full max-w-[90vw] mx-auto"
+          className="mb-2 w-full max-w-[100vw] px-4 mx-auto overflow-visible"
         >
           <h2
-            className="text-[clamp(8px,3.2vw,2.75rem)] sm:text-2xl md:text-[2.75rem] font-black uppercase tracking-[0.1em] sm:tracking-[0.4em] bg-gradient-to-r from-[#0F172A] via-[#1E3A8A] to-[#0F172A] bg-clip-text text-transparent font-outfit drop-shadow-sm whitespace-nowrap text-center"
+            className="text-[clamp(28px,4.5vw,64px)] font-black uppercase tracking-[0.05em] sm:tracking-[0.4em] bg-gradient-to-r from-[#0F172A] via-[#1E3A8A] to-[#0F172A] bg-clip-text text-transparent font-outfit drop-shadow-sm whitespace-nowrap text-center leading-[1.2] py-2"
             style={{
               textShadow: '0 0 30px rgba(30,58,138,0.15)',
             }}
@@ -1103,7 +1114,7 @@ const AwardsSection = () => {
 
   return (
     <>
-      <section id="awards" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 bg-[#F8FAFC] relative overflow-hidden">
+      <section id="awards" className="py-10 md:py-16 lg:py-20 px-4 sm:px-6 bg-[#F8FAFC] relative overflow-hidden">
         {/* Decorative background blur circles */}
         <div className="absolute top-1/4 left-0 w-48 sm:w-64 h-48 sm:h-64 bg-blue-100/40 rounded-full blur-[100px] pointer-events-none" />
         <div className="absolute bottom-1/4 right-0 w-48 sm:w-64 h-48 sm:h-64 bg-slate-200/40 rounded-full blur-[100px] pointer-events-none" />
@@ -1361,7 +1372,7 @@ const ClientsAndPartnershipsSection = () => {
   };
 
   return (
-    <section id="clients-partners" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 bg-slate-50 relative overflow-hidden">
+    <section id="clients-partners" className="py-10 md:py-16 lg:py-20 px-4 sm:px-6 bg-slate-50 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* === SECTION 1: INDUSTRIES WE SERVE === */}
         <div className="mb-16 sm:mb-20 md:mb-24">
@@ -1391,7 +1402,7 @@ const ClientsAndPartnershipsSection = () => {
             />
           </div>
 
-          <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-4 sm:gap-6 h-auto lg:h-[480px] items-stretch">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:flex lg:flex-row gap-4 sm:gap-6 h-auto lg:h-[480px] items-stretch">
             {INDUSTRIES_DATA.map((sector, idx) => {
               const isActive = activeSector === sector.id;
               return (
@@ -1406,8 +1417,8 @@ const ClientsAndPartnershipsSection = () => {
                   className={cn(
                     "cursor-pointer rounded-[1.5rem] overflow-hidden relative shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-all duration-500 flex flex-col justify-end p-5 sm:p-8 border border-white/60 group",
                     isActive
-                      ? "lg:flex-[3] flex-[4] bg-gradient-to-br from-[#0f1b3d] to-[#1e3a8a] shadow-blue-900/20"
-                      : "lg:flex-[1] flex-[1] bg-gradient-to-br from-white to-[#f4f7fb] hover:bg-white hover:shadow-xl hover:-translate-y-1.5 min-h-[140px] sm:min-h-[180px] lg:min-h-0"
+                      ? "lg:flex-[3] bg-gradient-to-br from-[#0f1b3d] to-[#1e3a8a] shadow-blue-900/20"
+                      : "lg:flex-[1] bg-gradient-to-br from-white to-[#f4f7fb] hover:bg-white hover:shadow-xl hover:-translate-y-2 min-h-[160px] md:min-h-[200px] lg:min-h-0"
                   )}
                 >
                   {/* Accent Highlight Glow */}
@@ -1460,10 +1471,10 @@ const ClientsAndPartnershipsSection = () => {
                       <motion.div
                         key="collapsed"
                         layout
-                        className="flex lg:flex-col items-center lg:items-center justify-between lg:justify-end h-full relative"
+                        className="flex flex-col items-center justify-center h-full relative p-4 text-center group-hover:scale-105 transition-transform duration-500"
                       >
                         {/* Luxury Watermark Number */}
-                        <div className="absolute top-0 left-0 text-[#1f2f56] font-black text-6xl opacity-[0.15] group-hover:opacity-[0.25] transition-all duration-500 select-none font-outfit blur-[0.5px]">
+                        <div className="absolute top-4 left-4 lg:top-0 lg:left-0 text-[#1f2f56] font-black text-4xl lg:text-6xl opacity-[0.15] group-hover:opacity-[0.25] transition-all duration-500 select-none font-outfit blur-[0.5px]">
                           {sector.number}
                         </div>
 
@@ -1473,12 +1484,12 @@ const ClientsAndPartnershipsSection = () => {
                           </div>
                         </div>
 
-                        <div className="flex flex-col items-center justify-center w-full min-h-[160px] relative">
+                        <div className="flex flex-col items-center justify-center w-full relative">
                           <h3 className={cn(
-                            "font-black uppercase tracking-[0.2em] transition-all duration-500 py-4 font-outfit text-center whitespace-nowrap",
-                            "lg:[writing-mode:vertical-rl] lg:rotate-180",
-                            "text-[#1f2f56] group-hover:text-blue-600 group-hover:scale-105",
-                            sector.id === 's4' ? "text-base" : "text-lg"
+                            "font-black uppercase tracking-[0.2em] transition-all duration-500 py-4 font-outfit text-center",
+                            "lg:[writing-mode:vertical-rl] lg:rotate-180 text-xl lg:text-2xl",
+                            "text-[#1f2f56] group-hover:text-blue-600",
+                            isActive ? "opacity-0" : "opacity-100"
                           )}>
                             {sector.name}
                           </h3>
@@ -1573,7 +1584,7 @@ const FeedbackSection = () => {
   return (
     <section id="feedback" className="relative overflow-hidden">
       {/* --- Logo Showcase Section with Deep Gradient --- */}
-      <div className="bg-gradient-to-b from-[#0b132b] to-[#1c2541] py-16 sm:py-24 md:py-32 px-4 sm:px-6 relative">
+      <div className="bg-gradient-to-b from-[#0b132b] to-[#1c2541] py-10 md:py-16 lg:py-20 px-4 sm:px-6 relative">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 pointer-events-none opacity-20">
           <motion.div
@@ -1723,7 +1734,7 @@ const FeedbackSection = () => {
 
 const ContactSection = () => {
   return (
-    <section id="contact" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 bg-slate-50">
+    <section id="contact" className="py-10 md:py-16 lg:py-20 px-4 sm:px-6 bg-slate-50">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20">
           <div>
@@ -1942,7 +1953,7 @@ const ClientFeedbackSection = () => {
   };
 
   return (
-    <section id="client-feedback" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 bg-[#020617] relative overflow-hidden">
+    <section id="client-feedback" className="py-10 md:py-16 lg:py-20 px-4 sm:px-6 bg-[#020617] relative overflow-hidden">
       {/* Background Atmosphere */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[150px]" />
@@ -2201,7 +2212,7 @@ const Footer = () => {
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-white font-sans selection:bg-blue-900 selection:text-white overflow-x-hidden">
+    <div className="min-h-screen bg-white font-sans selection:bg-blue-900 selection:text-white overflow-x-hidden scroll-smooth">
       <Navbar />
       <main>
         <Hero />
